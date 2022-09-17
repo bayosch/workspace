@@ -1,0 +1,215 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "admin-microfront": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/admin-microfront",
+      "sourceRoot": "projects/admin-microfront/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/admin-microfront",
+            "index": "projects/admin-microfront/src/index.html",
+            "main": "projects/admin-microfront/src/main.ts",
+            "polyfills": "projects/admin-microfront/src/polyfills.ts",
+            "tsConfig": "projects/admin-microfront/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/admin-microfront/src/favicon.ico",
+              "projects/admin-microfront/src/assets"
+            ],
+            "styles": [
+              "projects/admin-microfront/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/admin-microfront/src/environments/environment.ts",
+                  "with": "projects/admin-microfront/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "admin-microfront:build:production"
+            },
+            "development": {
+              "browserTarget": "admin-microfront:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "admin-microfront:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/admin-microfront/src/test.ts",
+            "polyfills": "projects/admin-microfront/src/polyfills.ts",
+            "tsConfig": "projects/admin-microfront/tsconfig.spec.json",
+            "karmaConfig": "projects/admin-microfront/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/admin-microfront/src/favicon.ico",
+              "projects/admin-microfront/src/assets"
+            ],
+            "styles": [
+              "projects/admin-microfront/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          }
+        }
+      }
+    },
+    "paper-dashboard-angular-master": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/paper-dashboard-angular-master",
+      "sourceRoot": "projects/paper-dashboard-angular-master/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/paper-dashboard-angular-master",
+            "index": "projects/paper-dashboard-angular-master/src/index.html",
+            "main": "projects/paper-dashboard-angular-master/src/main.ts",
+            "polyfills": "projects/paper-dashboard-angular-master/src/polyfills.ts",
+            "tsConfig": "projects/paper-dashboard-angular-master/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/paper-dashboard-angular-master/src/favicon.ico",
+              "projects/paper-dashboard-angular-master/src/assets"
+            ],
+            "styles": [
+              "projects/paper-dashboard-angular-master/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/paper-dashboard-angular-master/src/environments/environment.ts",
+                  "with": "projects/paper-dashboard-angular-master/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "paper-dashboard-angular-master:build:production"
+            },
+            "development": {
+              "browserTarget": "paper-dashboard-angular-master:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "paper-dashboard-angular-master:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/paper-dashboard-angular-master/src/test.ts",
+            "polyfills": "projects/paper-dashboard-angular-master/src/polyfills.ts",
+            "tsConfig": "projects/paper-dashboard-angular-master/tsconfig.spec.json",
+            "karmaConfig": "projects/paper-dashboard-angular-master/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/paper-dashboard-angular-master/src/favicon.ico",
+              "projects/paper-dashboard-angular-master/src/assets"
+            ],
+            "styles": [
+              "projects/paper-dashboard-angular-master/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}
